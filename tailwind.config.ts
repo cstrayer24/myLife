@@ -8,11 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      "ml-onyx": "#343E3d",
-      "ml-Celadon": "#B8E0C7",
-      "ml-emerald": "#7BD389",
-      "ml-aqua": "#38E4AE",
-      "ml-forest": "#008C00",
+      colors: {
+        "ml-onyx": "#343E3d",
+        "ml-Celadon": "#B8E0C7",
+        "ml-emerald": "#7BD389",
+        "ml-aqua": "#38E4AE",
+        "ml-forest": "#008C00",
+      },
     },
   },
   plugins: [],

@@ -1,5 +1,6 @@
-export const runtime = "edge";
+export const runtime = "experimental-edge";
 import { redirect } from "next/navigation";
+
 import { cookies, headers } from "next/headers";
 import Image from "next/image";
 
@@ -11,7 +12,7 @@ export default function Home({
   searchParams: { sessionid?: string };
 }) {
   const hasCookie = cookies().has("sessionid");
-  //the !! forces it into a boolean
+  // the !! forces it into a boolean
   const hassessionParam = !!searchParams.sessionid;
   console.log(hassessionParam);
   if (!hasCookie && hassessionParam) {
@@ -22,5 +23,5 @@ export default function Home({
     redirect(`${process.env.LANDINGURL}/login`);
   }
   redirect(`${process.env.APPURL}/home`);
-  return <div className="bg-black"></div>;
+  return <div className="bg-black">h</div>;
 }
