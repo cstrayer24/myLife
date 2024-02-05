@@ -14,7 +14,6 @@ export default function Home({
   const hasCookie = cookies().has("sessionid");
   // the !! forces it into a boolean
   const hassessionParam = !!searchParams.sessionid;
-  console.log(hassessionParam);
   if (!hasCookie && hassessionParam) {
     redirect(`${process.env.APPURL}/`);
   } else if (hasCookie && !hassessionParam) {
