@@ -1,7 +1,8 @@
 import MainLayout from "@/components/Layout/mainLayout";
+import UserSettingsComp from "@/components/UserSettings";
 import HomeComponent from "@/components/home/HomeComponent";
 import baseData from "@/types/userBaseData";
-import { headers, cookies } from "next/headers";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export const runtime = "experimental-edge";
@@ -19,7 +20,7 @@ export default async function Page() {
     if (req.ok) {
       const res: baseData = await req.json();
 
-      return <HomeComponent data={res} />;
+      return <UserSettingsComp data={res} />;
     } else {
       throw new Error("invalid req");
     }
