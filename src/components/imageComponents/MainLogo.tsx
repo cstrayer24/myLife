@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-
+import type sizePair from "@/types/sizePair";
 function MainLogo({ className, size }: { className?: string; size: sizePair }) {
   const [w, h] = size;
   return (

@@ -1,7 +1,15 @@
+"use client";
 import UserCircle from "../iconComponents/UserCircle";
 import styles from "../../transitions/navHoverTransitions.module.css";
 import { useRouter } from "next/navigation";
-export default function UserView({ username }: { username: string }) {
+import PfpComp from "../general/PfpComp";
+export default function UserView({
+  username,
+  pfpUrl,
+}: {
+  username: string;
+  pfpUrl: string;
+}) {
   const router = useRouter();
   return (
     <div
@@ -11,7 +19,13 @@ export default function UserView({ username }: { username: string }) {
       }}
     >
       <div className=" h-10 flex items-center gap-10">
-        <UserCircle className=" w-10 h-10 ml-10 font-bold" />
+        {/* <UserCircle className=" w-10 h-10 ml-10 font-bold" /> */}
+        <PfpComp
+          iconClassName="w-10 h-10 ml-10 font-bold"
+          imgSize={[100, 150]}
+          pfpUrl={pfpUrl}
+          className="w-10 h-10 ml-10 font-bold"
+        />
         <h2 className="inline text-white font-bold">Hello {username}</h2>
       </div>
     </div>

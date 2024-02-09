@@ -11,10 +11,11 @@ export default function Nav({ userInfo }: { userInfo: baseUser }) {
     { displayText: "buy merch", slug: "shop" },
     { displayText: "goals", slug: "goals" },
   ];
+  // console.log(`${userInfo.pfp} from nav/index.ts`);
   return (
     <div className=" h-full bg-ml-forest w-full z-0 flex flex-col gap-40 ">
       <div>
-        <UserView username={userInfo.username} />
+        <UserView username={userInfo.username} pfpUrl={userInfo.pfp} />
       </div>
 
       <div>
