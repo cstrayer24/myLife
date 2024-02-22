@@ -13,7 +13,7 @@ export default function Nav({ userInfo }: { userInfo: baseUser }) {
   ];
   // console.log(`${userInfo.pfp} from nav/index.ts`);
   return (
-    <div className=" h-full bg-ml-forest w-full z-0 flex flex-col gap-40 ">
+    <div className=" h-full bg-ml-forest w-full  flex flex-col gap-40 ">
       <div>
         <UserView username={userInfo.username} pfpUrl={userInfo.pfp} />
       </div>

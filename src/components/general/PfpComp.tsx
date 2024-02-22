@@ -16,7 +16,6 @@ export default function PfpComp({
   const [w, h] = imgSize;
   const hasPfp =
     pfpUrl !== "" && pfpUrl !== null && typeof pfpUrl !== "undefined";
-  console.log(pfpUrl);
   return (
     <>
       {hasPfp ? (

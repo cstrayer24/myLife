@@ -1,0 +1,20 @@
+import { INTERNALS } from "next/dist/server/web/spec-extension/request";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function POST(req: NextRequest) {
+  const bod = await req.json();
+
+  const REQ = await fetch(`${process.env.APIURL}/make-goal`, {
+    method: "POST",
+    body: JSON.stringify(bod),
+    headers: {
+      "x-sessionid": req.cookies.get("sessionid")?.value as string,
+    },
+  });
+
+  if (REQ.ok) {
+    return NextResponse.json({ stat: "success" }, { status: 200 });
+  } else {
+    return NextResponse.json({ stat: "fail" }, { status: 500 });
+  }
+}

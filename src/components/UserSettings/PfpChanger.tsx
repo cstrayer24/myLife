@@ -68,6 +68,9 @@ export default function PfpChanger({
                   });
 
                   console.log(await req.json());
+                  if (req.ok) {
+                    window.location.reload();
+                  }
                 }
               } catch (error) {
                 console.error("Error uploading image:", error);

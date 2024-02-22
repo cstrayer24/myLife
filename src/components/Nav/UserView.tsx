@@ -13,7 +13,7 @@ export default function UserView({
   const router = useRouter();
   return (
     <div
-      className={`${styles.navHover} border-y-white border-y w-full z-10 relative top-10 hover:bg-white/65 cursor-pointer py-4`}
+      className={`${styles.navHover} border-y-white border-y w-full relative top-10 hover:bg-white/65 cursor-pointer py-4`}
       onClick={(e) => {
         router.push("/home/user-settings");
       }}

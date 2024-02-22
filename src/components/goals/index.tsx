@@ -5,6 +5,7 @@ import EditGoals from "./EditGoalsButton";
 import EditGoalsButton from "./EditGoalsButton";
 import { useState } from "react";
 import CreateGoalModal from "./CreateGoalModal";
+import GoalsTable from "./GoalsTable";
 
 export default function GoalsComponent({ data }: { data: baseData }) {
   const [goalsModalShown, setGoalsModalShown] = useState(false);
@@ -30,6 +31,9 @@ export default function GoalsComponent({ data }: { data: baseData }) {
                 setGoalsModalShown(true);
               }}
             />
+          </div>
+          <div className=" w-full h-[80%] grid place-items-center">
+            <GoalsTable />
           </div>
         </div>
       </MainLayout>

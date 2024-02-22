@@ -16,7 +16,9 @@ export default function UserSettingsComp({ data }: { data: baseData }) {
       if (!window.localStorage.getItem("pfp-url")) {
         const req = await fetch("/api/get-signed-url", {
           method: "POST",
-          body: JSON.stringify({ imgPath: `${data.info.username}_pfp` }),
+          body: JSON.stringify({
+            imgPath: `${data.info.username}_pfp`,
+          }),
           cache: "no-store",
         });
         if (req.ok) {
