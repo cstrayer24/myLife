@@ -6,6 +6,7 @@ export type baseUser = {
   email: string;
   birthday: string | Date;
   sex: "male" | "female";
+  pfp: string;
 };
 
 export type mentalBaseData = {
