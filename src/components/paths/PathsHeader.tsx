@@ -24,7 +24,7 @@ export default function PathsHeader() {
                 setModalShown(true);
               }}
             >
-              <PencilLessSquare className="w-6 h-6 mr-4 mt-1 stroke-white" />
+              {/* <PencilLessSquare className="w-6 h-6 mr-4 mt-1 stroke-white" /> */}
             </div>
           </div>
           <h1 className=" text-5xl ">Paths</h1>

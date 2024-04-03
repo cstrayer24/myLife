@@ -1,8 +1,13 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler, useState } from "react";
+
 import ModalLayer from "../general/ModalLayer";
 import Xmark from "../iconComponents/Xmark";
 import styles from "@/transitions/navHoverTransitions.module.css";
 import PathInfoForm from "./PathInfoForm";
+import pfState from "@/types/pathFormState";
+import PathMakeCtx from "./PathMakeCtx";
+import PathMakeForm from "./PathMakeForm";
+
 export default function NewPathModal({
   closeLogic,
 }: {
@@ -20,7 +25,9 @@ export default function NewPathModal({
       </div>
 
       <div className=" bg-white rounded-md h-full w-[80%]">
-        <PathInfoForm />
+        <PathMakeCtx>
+          <PathMakeForm />
+        </PathMakeCtx>
       </div>
     </ModalLayer>
   );

@@ -9,7 +9,7 @@ function MainLogo({ className, size }: { className?: string; size: sizePair }) {
         alt="myLife logo"
         height={h}
         width={w}
-        src={`/images/mlNewLogo.png`}
+        src={`/images/myLifefaviconNoBg.png`}
       />
     </div>
   );

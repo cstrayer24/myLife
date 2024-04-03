@@ -1,22 +1,32 @@
-import { ReactElement, useRef, useState } from "react";
+import { ReactElement, useContext, useRef, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
+
 import ImgIcon from "../iconComponents/ImgIcon";
 import KeyWord from "./KeyWord";
+import { PmCtx } from "./PathMakeCtx";
+import pfState from "@/types/pathFormState";
 
 export default function PathInfoForm() {
   //   const [pathName, setPathName] = useState("");
 
   let currFile: File;
   let fname: string;
+
+  const Ctx = useContext(PmCtx) as {
+    pathState: any;
+    setPathState: Dispatch<SetStateAction<{}>>;
+  };
+
   const [pathName, setPathName] = useState("");
   const [description, setDescription] = useState("");
   const [focusedStyle, setFocusedStyle] = useState("border");
   const [descFocusedStyle, setDescFocusedStyle] = useState("border");
   const [keywords, setKeywords] = useState<ReactElement[]>([]);
   const [keywordList, setKeywordList] = useState<string[]>([]);
-  let currKeywordI = 0;
+
   const fiRef = useRef<HTMLInputElement>(null);
   return (
-    <div className=" w-full h-full">
+    <div className=" w-full h-full overflow-y-scroll">
       <form
         action=""
         className=" h-[80%] w-full mt-6"
@@ -54,6 +64,18 @@ export default function PathInfoForm() {
               keywordList,
             }),
           });
+
+          if (req.ok) {
+            const res = await req.json();
+            console.log(res);
+            Ctx.setPathState((v) => {
+              const temp = structuredClone(v) as any;
+              temp.currState = 1;
+              return temp;
+            });
+
+            // console.log(Ctx.pathState);
+          }
         }}
       >
         <div className=" w-full h-20 flex flex-col mb-11">
