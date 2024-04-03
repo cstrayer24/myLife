@@ -10,25 +10,25 @@ import { redirect } from "next/navigation";
 export const runtime = "experimental-edge";
 
 export default async function Page() {
-  try {
-    const cookieObj = cookies();
-    const req = await fetch(`${process.env.APIURL}/getBaseUserData`, {
-      cache: "no-store",
-      headers: {
-        "x-sessionid": cookieObj.get("sessionid")?.value as string,
-      },
-      mode: "cors",
-    });
-    if (req.ok) {
-      const res: baseData = await req.json();
+  // try {
+  const cookieObj = cookies();
+  const req = await fetch(`${process.env.APIURL}/getBaseUserData`, {
+    cache: "no-store",
+    headers: {
+      "x-sessionid": cookieObj.get("sessionid")?.value as string,
+    },
+    mode: "cors",
+  });
+  if (req.ok) {
+    const res: baseData = await req.json();
 
-      return <SuccessPage data={res} />;
-    } else {
-      throw new Error("invalid req");
-    }
-  } catch (error) {
+    return <SuccessPage data={res} />;
+  } else {
     redirect(`${process.env.LANDINGURL}/login`);
+    throw new Error("invalid req");
   }
+  // } catch (error) {
+  // }
 
   return <div></div>;
 }

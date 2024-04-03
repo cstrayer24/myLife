@@ -25,7 +25,7 @@ export default async function Page() {
       throw new Error("invalid req");
     }
   } catch (error) {
-    redirect(`${process.env.LANDINGURL}/login`);
+    // redirect(`${process.env.LANDINGURL}/login`);
   }
 
   return <div></div>;
