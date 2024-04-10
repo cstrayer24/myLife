@@ -7,6 +7,9 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      sans: ["Verdana", "Geneva", "sans-serif"],
+    },
     extend: {
       colors: {
         "ml-onyx": "#343E3d",
@@ -14,6 +17,7 @@ const config: Config = {
         "ml-emerald": "#7BD389",
         "ml-aqua": "#38E4AE",
         "ml-forest": "#008C00",
+        "ml-pink": "#ff5555",
       },
     },
   },

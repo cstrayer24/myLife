@@ -13,12 +13,12 @@ export default function UserView({
   const router = useRouter();
   return (
     <div
-      className={`${styles.navHover} border-y-white border-y w-full relative top-10 hover:bg-white/65 cursor-pointer py-4`}
+      className={`${styles.navHover} border-y-white border-b w-full relative hover:bg-white/65 cursor-pointer py-4 grid grid-flow-row grid-rows-2`}
       onClick={(e) => {
         router.push("/home/user-settings");
       }}
     >
-      <div className=" h-10 flex items-center gap-10">
+      <div className=" justify-center h-10 flex w-full items-center gap-10">
         {/* <UserCircle className=" w-10 h-10 ml-10 font-bold" /> */}
         <PfpComp
           iconClassName="w-10 h-10 ml-10 font-bold"
@@ -26,7 +26,10 @@ export default function UserView({
           pfpUrl={pfpUrl}
           className="w-10 h-10 ml-10 font-bold"
         />
-        <h2 className="inline text-white font-bold">Hello {username}</h2>
+      </div>
+
+      <div className=" flex justify-center h-10 mt-3">
+        <h2 className="inline text-white font-bold text-2xl">{username}</h2>
       </div>
     </div>
   );

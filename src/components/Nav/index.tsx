@@ -5,10 +5,10 @@ import navItem_t from "@/types/navItem_t";
 
 export default function Nav({ userInfo }: { userInfo: baseUser }) {
   const navItems: navItem_t[] = [
-    { displayText: "paths", slug: "paths" },
+    // { displayText: "paths", slug: "paths" },
     { displayText: "spots", slug: "spots" },
-    { displayText: "get pro", slug: "get-pro" },
-    { displayText: "buy merch", slug: "shop" },
+    { displayText: "get premium", slug: "get-pro" },
+    { displayText: "Merch", slug: "shop" },
     { displayText: "goals", slug: "goals" },
   ];
   // console.log(`${userInfo.pfp} from nav/index.ts`);
@@ -18,7 +18,7 @@ export default function Nav({ userInfo }: { userInfo: baseUser }) {
         <UserView username={userInfo.username} pfpUrl={userInfo.pfp} />
       </div>
 
-      <div>
+      <div className=" h-fit">
         <NavItems items={navItems} />
       </div>
     </div>
