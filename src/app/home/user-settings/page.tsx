@@ -1,31 +1,23 @@
 import MainLayout from "@/components/Layout/mainLayout";
 import UserSettingsComp from "@/components/UserSettings";
 import HomeComponent from "@/components/home/HomeComponent";
+import { UNAUTHORIZED } from "@/lib/httpStatusCodes";
+import getBaseUserData from "@/lib/libApi/getBaseUserData";
+import sendToLogin from "@/lib/sendToLogin";
 import baseData from "@/types/userBaseData";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export const runtime = "experimental-edge";
 
 export default async function Page() {
-  try {
-    const cookieObj = cookies();
-    const req = await fetch(`${process.env.APIURL}/getBaseUserData`, {
-      cache: "no-store",
-      headers: {
-        "x-sessionid": cookieObj.get("sessionid")?.value as string,
-      },
-      mode: "cors",
-    });
-    if (req.ok) {
-      const res: baseData = await req.json();
+  const req = await getBaseUserData();
+  if (req.ok) {
+    const res: baseData = await req.json();
 
-      return <UserSettingsComp data={res} />;
-    } else {
-      throw new Error("invalid req");
+    return <UserSettingsComp data={res} />;
+  } else {
+    if (req.status === UNAUTHORIZED) {
+      sendToLogin();
     }
-  } catch (error) {
-    // redirect(`${process.env.LANDINGURL}/login`);
   }
 
   return <div></div>;
