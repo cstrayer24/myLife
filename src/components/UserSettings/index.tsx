@@ -6,6 +6,7 @@ import UserCircle from "../iconComponents/UserCircle";
 import TextChanger from "./TextChanger";
 import { createContext, useEffect, useState } from "react";
 import PfpChanger from "./PfpChanger";
+import MLBoxButton from "../general/MLBoxButton";
 
 export const BaseSettingsCtx = createContext({});
 
@@ -65,24 +66,21 @@ export default function UserSettingsComp({ data }: { data: baseData }) {
         </BaseSettingsCtx.Provider>
         <div className="w-full flex justify-center mt-5">
           {" "}
-          <button
-            className=" bg-ml-Celadon rounded-md p-2 px-5"
+          <MLBoxButton
+            text="save"
             onClick={async (e) => {
               //todo make the api route
               const req = await fetch("/api/set-user-setting", {
                 method: "PATCH",
                 body: JSON.stringify({ thingsToChange: settingText }),
               });
-
               if (req.ok) {
                 if (typeof window != "undefined") {
                   window.location.reload();
                 }
               }
             }}
-          >
-            Save
-          </button>
+          />
         </div>
       </div>
     </MainLayout>

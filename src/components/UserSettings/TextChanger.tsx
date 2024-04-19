@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Dispatch, SetStateAction } from "react";
 
 import { BaseSettingsCtx } from ".";
+import MLTinput from "../general/MLTinput";
 export default function TextChanger({
   feild,
   val,
@@ -36,12 +37,11 @@ export default function TextChanger({
           }}
         >
           <h2 className=" text-ml-onyx mb-3">{feild}:</h2>
-          <input
+          <MLTinput
             type={`${isEmail ? "email" : "text"}`}
-            name=""
-            id=""
-            className={` text-ml-onyx ${borderState} outline-none  w-80 ml-4 pb-[0.1rem] border-b-ml-onyx mr-4 bg-transparent rounded-t-md px-3 py-2`}
+            className={` text-ml-onyx ${borderState} outline-none  w-80 ml-4 pb-[0.1rem] border-b-ml-onyx mr-4 bg-transparent rounded-t-md`}
             value={valState}
+            placeholder={feild}
             onChange={(e) => {
               e.preventDefault();
               setValState(e.target.value);
@@ -51,12 +51,6 @@ export default function TextChanger({
                 return newObj;
               });
               console.log(st.settingText);
-            }}
-            onFocus={(e) => {
-              setBorderState("border-2");
-            }}
-            onBlur={(e) => {
-              setBorderState("border");
             }}
           />
           {/* <button className=" bg-ml-Celadon rounded-full p-3">change</button> */}

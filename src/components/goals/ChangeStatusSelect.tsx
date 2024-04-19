@@ -10,7 +10,7 @@ export default function ChangeStatusSelect({
   const possibleStatus = [
     "not started",
     "started",
-    "in progress",
+    "working on",
     "near completion",
     "completed",
   ];
@@ -27,3 +27,5 @@ export default function ChangeStatusSelect({
     </select>
   );
 }
+//set date limit
+//make urgencey level dropdown

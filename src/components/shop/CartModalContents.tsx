@@ -5,6 +5,7 @@ import cartInfo_t from "@/types/cartInfo_t";
 import rmCartItemById from "@/lib/rmCartItemById";
 import checkoutItem_t from "@/types/checkoutItem_t";
 import { useRouter } from "next/navigation";
+import MLBoxButton from "../general/MLBoxButton";
 
 export default function CartModalContents({
   closeModal,
@@ -77,8 +78,8 @@ export default function CartModalContents({
             <h1>total</h1>
             <h1>${cartData?.total}</h1>
           </div>
-          <button
-            className=" bg-ml-forest text-white w-32 py-1"
+          <MLBoxButton
+            text="Checkout"
             onClick={async (ev) => {
               const itemsToSend: checkoutItem_t[] = [];
 
@@ -103,9 +104,7 @@ export default function CartModalContents({
                 router.push(res.paymentUrl);
               }
             }}
-          >
-            Checkout
-          </button>
+          />
         </div>
       </div>
     </div>
