@@ -28,5 +28,4 @@ export default function ChangeStatusSelect({
   );
 }
 //set date limit
-//make goals page header pink ish
 //make urgencey level dropdown

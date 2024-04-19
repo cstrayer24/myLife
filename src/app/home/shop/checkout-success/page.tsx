@@ -19,14 +19,8 @@ export default async function Page() {
 
     return <SuccessPage data={res} />;
   } else {
-<<<<<<< Updated upstream
-    if (req.status === UNAUTHORIZED) {
-      sendToLogin();
-    }
-=======
     throw new Error("invalid req");
     // redirect(`${process.env.LANDINGURL}/login`);
->>>>>>> Stashed changes
   }
   return <div></div>;
 }

@@ -5,6 +5,7 @@ import * as mb from "mapbox-gl";
 import MainLayout from "../Layout/mainLayout";
 import { useEffect, useState } from "react";
 import getCurrentLatLng from "@/lib/getCurrentLatLng";
+import SpotComponent from "./SpotComponent";
 const ZOOMAMT = 10;
 export default function SpotsComponent({
   data,
@@ -13,9 +14,7 @@ export default function SpotsComponent({
   data: baseData;
   pubAccessToken: string;
 }) {
-  //   const [currentLocation, setCurrentLocation] = useState<number[]>([]);
-
-  //   mb.accessToken.replace(mb.accessToken, process.env.MAPBOXPUBTOKEN as string);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pos) => {
@@ -28,6 +27,7 @@ export default function SpotsComponent({
         });
 
         map.on("load", (ev) => {
+          setIsLoading(false);
           map.addSource("MainSrc", {
             type: "vector",
             url: "mapbox://mapbox.mapbox-streets-v8",
@@ -46,8 +46,14 @@ export default function SpotsComponent({
 
   return (
     <MainLayout data={data}>
-      <div className=" w-full h-full">
-        <div id="map" className=" w-full h-full"></div>
+      <div className=" w-full h-full relative">
+        {isLoading && <h1 className=" text-ml-onyx">Loading...</h1>}
+        {!isLoading && (
+          <div className=" z-10 w-10 h-10 absolute top-0 left-0 overflow-scroll">
+            <SpotComponent name="test" address="test" link="test" image="" />
+          </div>
+        )}
+        {/* <div id="map" className="h-full z-0"></div> */}
       </div>
     </MainLayout>
   );

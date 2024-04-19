@@ -27,6 +27,11 @@ export default function FormSlot({
             name={formName}
             className=" border border-ml-onyx rounded-md px-5"
             id=""
+            max={
+              formType === "date"
+                ? `${new Date().getFullYear() + 100}-01-01`
+                : ``
+            }
             placeholder={formPlaceHolder}
           />
         )}

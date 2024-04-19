@@ -11,6 +11,9 @@ const config: Config = {
       sans: ["Verdana", "Geneva", "sans-serif"],
     },
     extend: {
+      gridTemplateColumns: {
+        "auto-fit": "repeat(auto-fit, minmax(200px, 1fr))",
+      },
       colors: {
         "ml-onyx": "#343E3d",
         "ml-Celadon": "#B8E0C7",

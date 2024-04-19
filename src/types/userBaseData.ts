@@ -21,6 +21,12 @@ export type mentalBaseData = {
     | "hinduism"
     | "buddhism"
     | "none";
+  employment_status:
+    | "employed"
+    | "self-employed"
+    | "looking"
+    | "schooling"
+    | "unemployed";
   relationship_status:
     | "employed"
     | "self-employed"

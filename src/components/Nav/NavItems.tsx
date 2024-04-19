@@ -3,11 +3,11 @@ import NavItem from "./NavItem";
 
 export default function NavItems({ items }: { items: navItem_t[] }) {
   //the max height each item can be is 200
-  const RANDOMFUCKINGHEIGHTLIMIT = 200;
-  const fullHeight = RANDOMFUCKINGHEIGHTLIMIT * items.length;
+  const RANDOMFUCKINGHEIGHTLIMIT = 300;
+  const heightClass = `h-[${RANDOMFUCKINGHEIGHTLIMIT}px]`;
 
   return (
-    <div className={`h-[${200}px]`}>
+    <div style={{ height: `${RANDOMFUCKINGHEIGHTLIMIT}px` }}>
       {items.map((v, i) => {
         return (
           <NavItem

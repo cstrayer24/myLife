@@ -6,6 +6,8 @@ import navItem_t from "@/types/navItem_t";
 export default function Nav({ userInfo }: { userInfo: baseUser }) {
   const navItems: navItem_t[] = [
     // { displayText: "paths", slug: "paths" },
+    { displayText: "physical", slug: "physical" },
+    { displayText: "social", slug: "social" },
     { displayText: "spots", slug: "spots" },
     { displayText: "get premium", slug: "get-pro" },
     { displayText: "Merch", slug: "shop" },
