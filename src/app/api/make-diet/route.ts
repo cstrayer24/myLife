@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export default async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const bod = await req.json();
   const REQ = await fetch(`${process.env.APIURL}/make-diet`, {
     method: "POST",
