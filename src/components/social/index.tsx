@@ -1,21 +1,28 @@
 "use client";
 import baseData from "@/types/userBaseData";
 import MainLayout from "../Layout/mainLayout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PersonalCard from "./PersonalCard";
 import GroupJoin from "./GroupJoin";
-import getRecomendedGroup from "@/lib/getRecomendedGroups";
+import recomendGroups from "@/lib/recomendGroups";
 import group_t from "@/types/group_t";
 export default function SocialComponent({ data }: { data: baseData }) {
   const [pCardIsUp, setPCardIsUp] = useState(false);
   const [groups, setGroups] = useState<group_t[]>([]);
   async function getGroups() {
-    const recomendedGroups = await getRecomendedGroup(data);
-    console.log(recomendedGroups);
-    setGroups(recomendedGroups as group_t[]);
+    const groups = recomendGroups(data);
+    console.log(groups);
+    const req = await fetch("/api/get-group-by-keyword", {
+      method: "POST",
+      body: JSON.stringify({ keywords: groups }),
+    });
+    console.log(req);
+    const res: group_t[] = await req.json();
+    setGroups(res);
+    console.log(res);
   }
-
   getGroups();
+
   return (
     <>
       {pCardIsUp && (
@@ -52,13 +59,13 @@ export default function SocialComponent({ data }: { data: baseData }) {
           </h1>
         </div>
         <div className=" grid grid-cols-auto-fit mt-5">
-          <GroupJoin
+          {/* <GroupJoin
             GroupName="students"
             img="https://nkkjhhjhj.uk/capAndGown.jpeg"
-          />
-          {/* {groups.map((v, i) => (
+          /> */}
+          {groups.map((v, i) => (
             <GroupJoin GroupName={v.name} img={v.thumbnail} key={i} />
-          ))} */}
+          ))}
         </div>
       </MainLayout>
     </>

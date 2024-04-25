@@ -8,8 +8,8 @@ export default function Nav({ userInfo }: { userInfo: baseUser }) {
     // { displayText: "paths", slug: "paths" },
     { displayText: "physical", slug: "physical" },
     { displayText: "social", slug: "social" },
-    { displayText: "spots", slug: "spots" },
-    { displayText: "get premium", slug: "get-pro" },
+    // { displayText: "spots", slug: "spots" },
+    // { displayText: "get premium", slug: "get-pro" },
     { displayText: "Merch", slug: "shop" },
     { displayText: "goals", slug: "goals" },
   ];
