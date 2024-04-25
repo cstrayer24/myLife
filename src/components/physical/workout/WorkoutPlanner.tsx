@@ -112,7 +112,7 @@ export default function WorkoutPlanner() {
           <div>
             <MLTinput
               placeholder="Workout Name"
-              className=" p-0.5"
+              className=" p-0.5 border-none"
               onChange={(ev) => {
                 setWorkoutName(ev.target.value);
               }}
